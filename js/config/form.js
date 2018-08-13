@@ -1,3 +1,8 @@
+import { ssnConfig } from 'us-forms-system/lib/js/definitions/ssn';
+import { dateConfig } from 'us-forms-system/lib/js/definitions/date';
+import { dateRangeConfig } from 'us-forms-system/lib/js/definitions/dateRange';
+import { currencyConfig } from 'us-forms-system/lib/js/definitions/currency';
+
 import Introduction from '../components/Introduction.jsx';
 
 const formConfig = {
@@ -10,7 +15,9 @@ const formConfig = {
   submitUrl: '',
   introduction: Introduction,
   confirmation: '',
-  defaultDefinitions: {},
+  defaultDefinitions: {
+    dateConfig
+  },
   chapters: {
     firstChapter: {
       title: 'First Chapter',
@@ -18,10 +25,20 @@ const formConfig = {
         firstPage: {
           path: 'first-chapter/first-page',
           title: 'First Page',
-          uiSchema: {},
+          uiSchema: {
+            ssn: ssnConfig.uiSchema,
+            date: dateConfig.uiSchema(),
+            dateRange: dateRangeConfig.uiSchema(),
+            currency: currencyConfig.uiSchema('Currency')
+          },
           schema: {
             type: 'object',
-            properties: {}
+            properties: {
+              ssn: ssnConfig.schema,
+              date: dateConfig.schema,
+              dateRange: dateRangeConfig.schema,
+              currency: currencyConfig.schema
+            }
           }
         },
         secondPage: {
