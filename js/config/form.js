@@ -12,6 +12,8 @@ import { currentOrPastMonthYearConfig } from 'us-forms-system/lib/js/definitions
 
 import Introduction from '../components/Introduction.jsx';
 
+const dateSchema = dateConfig.schema();
+
 const formConfig = {
   title: 'Form',
   subTitle: 'Test',
@@ -33,12 +35,12 @@ const formConfig = {
           path: 'first-chapter/first-page',
           title: 'First Page',
           uiSchema: {
-            ssn: ssnConfig.uiSchema,
+            ssn: ssnConfig.uiSchema(),
             date: dateConfig.uiSchema(),
             dateRange: dateRangeConfig.uiSchema(),
             currency: currencyConfig.uiSchema('Currency'),
             phone: phoneConfig.uiSchema(),
-            year: yearConfig.uiSchema,
+            year: yearConfig.uiSchema(),
             currentOrPastDate: currentOrPastDateConfig.uiSchema(),
             currentOrPastMonthYear: currentOrPastMonthYearConfig.uiSchema(),
             monthYear: monthYearConfig.uiSchema(),
@@ -47,16 +49,16 @@ const formConfig = {
           schema: {
             type: 'object',
             properties: {
-              ssn: ssnConfig.schema,
-              date: dateConfig.schema,
-              dateRange: dateRangeConfig.schema,
-              currency: currencyConfig.schema,
-              phone: phoneConfig.schema,
-              year: yearConfig.schema,
-              currentOrPastDate: currentOrPastDateConfig.schema,
-              currentOrPastMonthYear: currentOrPastMonthYearConfig.schema,
-              monthYear: monthYearConfig.schema,
-              monthYearRange: monthYearRangeConfig.schema
+              ssn: ssnConfig.schema(),
+              date: dateConfig.schema(),
+              dateRange: dateRangeConfig.schema(),
+              currency: currencyConfig.schema(),
+              phone: phoneConfig.schema(),
+              year: yearConfig.schema(),
+              currentOrPastDate: currentOrPastDateConfig.schema(),
+              currentOrPastMonthYear: currentOrPastMonthYearConfig.schema(),
+              monthYear: monthYearConfig.schema(),
+              monthYearRange: monthYearRangeConfig.schema()
             }
           }
         },
